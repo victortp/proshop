@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PayPalButton } from 'react-paypal-button-v2';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Row, Col, ListGroup, Image } from 'react-bootstrap';
+import { Row, Col, ListGroup, Image } from 'react-bootstrap';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { Link } from 'react-router-dom';
@@ -28,10 +28,6 @@ const OrderScreen = ({ match }) => {
   }
 
   useEffect(() => {
-    /*if (!userInfo) {
-      history.push('/login')
-    }*/
-
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get('/api/config/paypal');
       const script = document.createElement('script');
