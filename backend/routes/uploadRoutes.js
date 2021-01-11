@@ -36,7 +36,6 @@ const upload = multer({
 });
 
 router.post('/', upload.single('image'), (req, res) => {
-  console.log('req', req);
   if (req.fileValidationError) {
     res.status(500);
     res.send(req.fileValidationError);

@@ -21,11 +21,7 @@ const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({ ...keyword })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
-  console.log('{ products, page, pages: Math.ceil(count / pageSize) }', {
-    products,
-    page,
-    pages: Math.ceil(count / pageSize),
-  });
+
   res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
